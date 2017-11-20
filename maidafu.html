@@ -1,79 +1,75 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!doctype html>
+<html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<script src="js/jquery.min.js"></script>
-<script src="js/indexjs.js"></script>
+<meta charset="utf-8">
+<script type="text/javascript" src="js/jquery.js"></script>
+<meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0,user-scalable=no,minimum-scale=1.0,maximum-scale=1.0"/>
+<title>登陆界面</title>
 <style>
- 
-.sdddq {
-	font-family: "宋体";
-	font-size: 20px;
-	height: 30px;
-	width: 150px;
-	
-	 
+	*{
+	margin:0;
+	padding:0;}
+li{
+	list-style-type:none;
+	margin:0;
+	padding:0;}
+a{
+	text-decoration:none;
+	color:#000;}
+/*---------------------按钮-----------------------------*/
+.login_putin ul li input{
+	margin: 0;
+	width:70%;
+	padding: 1em 2em 1em 5.4em;
+	-webkit-border-radius:.3em;
+	-moz-border-radius: .3em;
+	border: 1px solid #999;
 }
-.lhj {
-	font-family: "宋体";
-	font-size: 60px;
-	height: 100px;
-	width: 350px;
-	line-height: 100px;
-	text-align: center;
-	float:left;
+.login_btn{
+	width:300px;
+	margin:40px auto 0 auto;
 }
-
-.sssd {
-	border-left-width: 1px;
-	border-left-style: solid;
-	border-left-color: #999;
-	text-align: center;
+.login_btn input{
+	width:100%;
+	margin:0;
+	padding:.5em 0;
+	-webkit-border-radius:.3em;
+	-moz-border-radius: .3em;
+	border:#1263be solid 1px;
+	background:#1b85fd;
+	color:#FFF;
+	font-size:17px;
+	font-weight:bolder;
+	letter-spacing:1em;
 }
-.bgColor{
- 	filter: progid:DXImageTransform.Microsoft.Gradient(GradientType=0, StartColorStr='#22000000', EndColorStr='#33FFFFFF'); 
-	background-image: linear-gradient(to top, rgba(255, 255, 255, 0.1) 0%, rgba(0, 0, 0, 0.2) 80%, rgba(0, 0, 0, 0.4) 100%, #FFFFFF 100%); 
-}
-.bgColor1{
- 	filter: progid:DXImageTransform.Microsoft.Gradient(GradientType=0, StartColorStr='#22FFFFFF', EndColorStr='#33000000'); 
-	background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.1) 0%, rgba(0, 0, 0, 0.2) 80%, rgba(0, 0, 0, 0.4) 100%, #FFFFFF 100%); 
-}
-
-
-</style>  
+</style>
 </head>
-<title>111档</title>
 <body>
-<p><br />
-</p>
-<div id="laohuji" class="lhj"></div>
- 
+	<div class="login_ico">
+	   <img src="images/facai.jpg" style="width: 100%;">	
+	</div>
+    <div class="login_putin">
+    	<ul>
+        	<li><input id="oldjh" type="number" placeholder="请输入上期开奖号"></li>
+        	<li><input id="oldhz" type="number" placeholder="请输入上期和值尾"></li>
+        	<li><input id="oldqh" type="number" placeholder="请输入上期期号"></li>
+        </ul>
+    </div>
+    <div class="login_btn">
+    	<input id="bmt" type="submit" value="开始" onclick="submit()">
+    </div>
+    <script type="text/javascript">
+    function submit(){
+    	if($("#oldjh").val() == null || $("#oldjh").val() == ''){
+    		alert("上期开奖号不能为空！");
+    	}else if($("#oldhz").val() == null || $("#oldhz").val() == ''){
+    		alert("上期和值尾不能为空！");
+    	}else if($("#oldqh").val() == null || $("#oldqh").val() == ''){
+    		alert("上期期号不能为空！");
+    	}else{
+    		alert("我们不一样");
+    	}
+    }
+    </script>
 </body>
 </html>
-<script>
-	var laohuji;
-	$(function() {
-		for(i=0;i<2;i++){
-			$("body").append("<div id='laohuji"+i+"' class='lhj'></div>");
-			laohuji = $("#laohuji"+i).luckDraw(4);
-		}
-		laohuji = $("#laohuji").luckDraw(4);//以div的扩展.的形式进行插件的展示和制作。
-	 	 
-		for(i=0;i<2;i++){
-			$("#laohuji"+i+"Click").trigger("click"); 
-		}
-		
-		 
-		
-		//{
-//			dragSelector : "#sort",
-//			placeHolderTemplate : "<tr>aaaa</tr>",
-//			dragEnd : function() {
-//				$("#doSort").css("display", "");
-//			}
-//		} 
-	});
-	function doSort() {
-		Duang.getService("shopSettingService").changeCyclingImgSort(dragTable.getOrders());
-	}
-</script>
